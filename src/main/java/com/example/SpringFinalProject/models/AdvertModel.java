@@ -1,20 +1,25 @@
 package com.example.SpringFinalProject.models;
 
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+
+import lombok.Data;
+
+import javax.persistence.*;
+
 
 @Entity
-/*@Data
-@Table(name = "item_model")*/
+@Table(name = "item_model")
+@Data
 public class AdvertModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String text;
-    private String tag;
+    @Column(name = "price")
+     String price;
+    @Column(name = "weight")
+     String weight;
+    @Column(name = "disc")
+     String disc;
 
     public Long getId() {
         return id;
@@ -24,19 +29,27 @@ public class AdvertModel {
         this.id = id;
     }
 
-    public String getText() {
-        return text;
+    public String getPrice() {
+        return price;
     }
 
-    public String getTag() {
-        return tag;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
-    public void setTag(String tag) {
-        this.tag = tag;
+    public String getWeight() {
+        return weight;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
+    public String getDisc() {
+        return disc;
+    }
+
+    public void setDisc(String disc) {
+        this.disc = disc;
     }
 }
