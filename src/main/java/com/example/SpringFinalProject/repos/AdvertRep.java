@@ -1,9 +1,9 @@
-/*
 package com.example.SpringFinalProject.repos;
 
 import com.example.SpringFinalProject.models.AdvertModel;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface MessageRep extends CrudRepository<AdvertModel,Long> {
+@Repository
+public interface AdvertRep extends CrudRepository<AdvertModel,Long> {
 }
-*/

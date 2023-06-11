@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en">
+<html xmlns:th="http:/www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -78,29 +78,26 @@
     </div>
 </header>
 
-<main>
 
-    <section class="py-5 text-center container">
-        <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">Интернет магазин</h1>
-                <p class="lead text-muted">Магазин, где вы найдете все необходимое</p>
-                <p>
-                    <a href="/allAdverts" class="btn btn-primary my-2">Каталог всех товаров</a>
-                    <a href="/addAdvert" class="btn btn-secondary my-2">Добавить товар</a>
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <div class="album py-5 bg-light">
-        <div class="container">
-
-        </div>
+<div class="album py-5 bg- light">
+    <div th:each = "el : ${adv}" class="row py-lg-5">
+        <h3 th:text = "${el.getName()}"></h3>
+        <p th:text = "${el.getWeight()}"></p>
+        <p th:text = "${el.getPrice()}"></p>
+        <p th:text = "${el.getDisc()}"></p>
     </div>
-
-</main>
-
+</div>
+<div class="album py-5 bg-light">
+    <h3>Оставить заявку на преобритение</h3>
+    <div class="row py-lg 5 ">
+    <form action="/advert" method="post">
+        <input type="text" name="name" placeholder="Как к вам можно обращаться"><br>
+        <input type="text" name="type" placeholder="Какой тип связи предпочитаете"><br>
+        <input type="text" name="contact" placeholder="Ваши контакты"><br>
+        <button type="submit" class="btn btn-success">Оставить заявку</button>
+    </form>
+</div>
+</div>
 <footer class="text-muted py-5">
     <div class="container">
         <p class="float-end mb-1">
